@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import colors from "../../colors";
+
+interface IWrapper {
+	selected: boolean;
+}
 
 export const Container = styled.div`
 	display: flex;
@@ -10,7 +15,7 @@ export const Container = styled.div`
 
 const Id = styled.p`
 	font-weight: bold;
-	background-color: turquoise;
+	background-color: ${colors.primary};
 	padding: 1rem;
 	margin: 0;
 	color: white;
@@ -19,11 +24,12 @@ const Id = styled.p`
 
 const Title = styled.p`
 	letter-spacing: 3px;
+	font-weight: bold;
 `;
 
 const Body = styled.p``;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<IWrapper>`
 	padding: 1rem 1rem 0 1rem;
 	min-width: 50%;
 	height: fit-content;
@@ -31,7 +37,7 @@ const Wrapper = styled.div`
 	flex-wrap: wrap;
 	justify-content: start;
 	text-align: left;
-	border: 1px solid turquoise;
+	border: 1px solid ${colors.primary};
 	margin-left: 1.25rem;
 
 	-webkit-box-shadow: 10px 10px 5px 0px #651a1b31;
@@ -44,17 +50,20 @@ const Wrapper = styled.div`
 
 	:hover {
 		cursor: pointer;
-
-		& {
-			background-color: turquoise;
-			color: white;
-		}
+		opacity: 75%;
 
 		& ${Id} {
 			border: 1px solid white;
 			border-bottom: none;
 		}
 	}
+
+	${(props) =>
+		props.selected &&
+		`& {
+			background-color: ${colors.primary};
+			color: white;
+		}`}
 
 	:active {
 		opacity: 90%;
@@ -69,7 +78,7 @@ const Heading = styled.p`
 const NoPost = styled.p``;
 
 const Error = styled.p`
-	color: tomato;
+	color: ${colors.error};
 `;
 
 export default { Wrapper, Id, Title, Body, Heading, NoPost, Error };
