@@ -1,20 +1,14 @@
-import {
-  call,
-  put,
-  takeLatest,
-  takeEvery,
-  takeMaybe
-} from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import PostService from "../services/PostService";
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function* fetchPosts() {
-  try {
-    const posts = yield call(PostService.fetchPosts);
-    yield put({ type: "POSTS_FETCH_SUCCEEDED", posts });
-  } catch (e) {
-    yield put({ type: "POSTS_FETCH_FAILED", message: e.message });
-  }
+	try {
+		const posts = yield call(PostService.fetchPosts);
+		yield put({ type: "POSTS_FETCH_SUCCEEDED", posts });
+	} catch (e) {
+		yield put({ type: "POSTS_FETCH_FAILED", message: e.message });
+	}
 }
 
 /*
@@ -22,7 +16,7 @@ function* fetchPosts() {
   Allows concurrent fetches of user.
 */
 function* postSaga() {
-  yield takeLatest("POSTS_FETCH_REQUESTED", fetchPosts);
+	yield takeLatest("POSTS_FETCH_REQUESTED", fetchPosts);
 }
 
 /*
