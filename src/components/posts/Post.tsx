@@ -11,7 +11,7 @@ const Post: FC<IProps> = ({ post }) => {
 	const dispatch = useDispatch();
 	return (
 		<>
-			<St.Wrapper onClick={() => dispatch({ type: "POST_SELECTED", selected: post.id })}>
+			<St.Wrapper onClick={() => dispatch({ type: "POST_SELECTED", selectedPost: post.id })}>
 				<St.Title>{post.title}</St.Title>
 				<St.Body>{post.body}</St.Body>
 				<St.Id>{post.id}</St.Id>

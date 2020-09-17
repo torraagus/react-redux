@@ -6,9 +6,8 @@ const postReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 	const { posts } = state;
 	switch (action.type) {
 		case "POST_SELECTED":
-			const selected = posts.filter((p) => p.id === action.selectedPost)[0];
-			console.log(selected);
-			return { ...state, selected };
+			const selectedPost = posts.filter((p) => p.id === action.selectedPost)[0];
+			return { ...state, selectedPost };
 		case "POSTS_FETCH_SUCCEEDED":
 			return { ...state, posts: [...action.posts] };
 		case "POSTS_FETCH_FAILED":
