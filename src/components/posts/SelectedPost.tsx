@@ -13,9 +13,11 @@ const SelectedPost: FC<any> = () => {
 			{!post ? (
 				<St.NoPost>No post selected</St.NoPost>
 			) : (
-				<Container>
-					<Post post={post} />
-				</Container>
+				<>
+					<Container>
+						<Post disabled post={post} />
+					</Container>
+				</>
 			)}
 		</>
 	);

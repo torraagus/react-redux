@@ -3,10 +3,16 @@ import colors from "../../colors";
 
 interface IWrapper {
 	selected: boolean;
+	disabled: boolean | undefined;
 }
 
-export const Container = styled.div`
+interface IContainer {
+	vertical?: boolean;
+}
+
+export const Container = styled.div<IContainer>`
 	display: flex;
+	flex-direction: ${({ vertical }) => (vertical ? "column" : "row")};
 	width: 50vw;
 	overflow-x: auto;
 	padding: 0.5rem;
@@ -48,26 +54,29 @@ const Wrapper = styled.div<IWrapper>`
 		margin: 0;
 	}
 
-	:hover {
-		cursor: pointer;
-		opacity: 75%;
+	${({ disabled }) =>
+		!disabled &&
+		`
+		:hover {
+			cursor: pointer;
+			opacity: 75%;
 
 		& ${Id} {
 			border: 1px solid white;
 			border-bottom: none;
+    	}
+    
+    	active {
+			opacity: 90%;
 		}
-	}
+	}`}
 
-	${(props) =>
-		props.selected &&
+	${({ selected }) =>
+		selected &&
 		`& {
 			background-color: ${colors.primary};
 			color: white;
 		}`}
-
-	:active {
-		opacity: 90%;
-	}
 `;
 
 const Heading = styled.p`

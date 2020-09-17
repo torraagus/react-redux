@@ -4,7 +4,7 @@ import Post from "./Post";
 import { RootState } from "../../reducers/post/interfaces";
 import St, { Container } from "./styles";
 
-const PostsContainer: FC<any> = (): JSX.Element => {
+const Posts: FC<any> = (): JSX.Element => {
 	const { posts, error } = useSelector((state: RootState) => state.postReducer);
 	const dispatch = useDispatch();
 
@@ -26,4 +26,4 @@ const PostsContainer: FC<any> = (): JSX.Element => {
 	);
 };
 
-export default PostsContainer;
+export default Posts;
