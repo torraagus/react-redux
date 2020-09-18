@@ -18,7 +18,7 @@ const Posts: FC<any> = (): JSX.Element => {
 		return (
 			<>
 				{heading}
-				<div>Loading posts...</div>
+				<St.Subheading>Loading comments...</St.Subheading>
 			</>
 		);
 	} else if (error) {

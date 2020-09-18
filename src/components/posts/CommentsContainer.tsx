@@ -13,7 +13,7 @@ const Comments: FC<any> = () => {
 		return (
 			<>
 				{heading}
-				<St.Heading>Loading comments...</St.Heading>
+				<St.Subheading>Loading comments...</St.Subheading>
 			</>
 		);
 	} else if (error) {
@@ -28,7 +28,7 @@ const Comments: FC<any> = () => {
 			<>
 				{heading}
 				{comments.length == 0 ? (
-					<St.NoResource>No comments</St.NoResource>
+					<St.Subheading>No comments</St.Subheading>
 				) : (
 					<Container vertical>
 						{comments.map((comment) => (

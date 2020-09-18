@@ -83,12 +83,13 @@ const Wrapper = styled.div<IWrapper>`
 const Heading = styled.p`
 	letter-spacing: 3px;
 	font-weight: bold;
+	color: ${colors.secondary};
 `;
 
-const NoResource = styled.p``;
+const Subheading = styled.p``;
 
 const Error = styled.p`
 	color: ${colors.error};
 `;
 
-export default { Wrapper, Id, Title, Body, Heading, NoResource, Error };
+export default { Wrapper, Id, Title, Body, Heading, Subheading, Error };
