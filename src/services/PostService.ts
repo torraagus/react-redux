@@ -10,7 +10,7 @@ const fetchPosts = async () => {
 };
 
 const fetchPostComments = async (postId: number) => {
-	const res = await fetch(`https://jsonplaceholder.typicode.com/camments?postId=${postId}`);
+	const res = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
 	const data = await res.json();
 
 	if (isEmpty(data)) throw new Error("No comments");
