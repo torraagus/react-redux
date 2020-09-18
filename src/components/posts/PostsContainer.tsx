@@ -12,18 +12,22 @@ const Posts: FC<any> = (): JSX.Element => {
 		dispatch({ type: "POSTS_FETCH_REQUESTED" });
 	}, []);
 
-	return error ? (
-		<St.Error>{error}</St.Error>
-	) : (
-		<>
-			<St.Heading>All posts</St.Heading>
-			<Container>
-				{posts.map((post) => (
-					<Post key={post.id} post={post} />
-				))}
-			</Container>
-		</>
-	);
+	if (posts.length == 0) {
+		return <div>Loading posts...</div>;
+	} else if (error) {
+		return <St.Error>{error}</St.Error>;
+	} else {
+		return (
+			<>
+				<St.Heading>All posts</St.Heading>
+				<Container>
+					{posts.map((post) => (
+						<Post key={post.id} post={post} />
+					))}
+				</Container>
+			</>
+		);
+	}
 };
 
 export default Posts;
