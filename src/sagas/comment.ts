@@ -1,8 +1,7 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put } from "redux-saga/effects";
 import PostService from "../services/PostService";
 import { IAction } from "../reducers/post/interfaces";
 
-// worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function* fetchPostComments(action: IAction) {
 	try {
 		const comments = yield call(PostService.fetchPostComments, action.postId);
@@ -11,25 +10,5 @@ function* fetchPostComments(action: IAction) {
 		yield put({ type: "COMMENTS_FETCH_FAILED", message: e.message });
 	}
 }
-
-/*
-  Starts fetchUser on each dispatched `USER_FETCH_REQUESTED` action.
-  Allows concurrent fetches of user.
-*/
-function* postSaga() {
-	yield takeLatest("COMMENTS_FETCH_REQUESTED", fetchPostComments);
-}
-
-/*
-  Alternatively you may use takeLatest.
-
-  Does not allow concurrent fetches of user. If "USER_FETCH_REQUESTED" gets
-  dispatched while a fetch is already pending, that pending fetch is cancelled
-  and only the latest one will be run.
-
-function* mySaga() {
-  yield takeLatest("USER_FETCH_REQUESTED", fetchUser);
-}
-*/
 
 export { fetchPostComments };
