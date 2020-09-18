@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IPost, RootState } from "../../reducers/post/interfaces";
+import { IPost } from "../../reducers/post/interfaces";
+import { RootState } from "../../reducers/interfaces";
 import St from "./styles";
 
 interface IProps {

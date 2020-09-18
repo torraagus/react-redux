@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../reducers/post/interfaces";
+import { RootState } from "../../reducers/interfaces";
+import Comments from "../posts/CommentsContainer";
 import Post from "./Post";
 import St, { Container } from "./styles";
 
@@ -17,6 +18,7 @@ const SelectedPost: FC<any> = () => {
 					<Container>
 						<Post disabled post={post} />
 					</Container>
+					<Comments />
 				</>
 			)}
 		</>

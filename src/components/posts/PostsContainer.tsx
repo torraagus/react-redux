@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Post from "./Post";
-import { RootState } from "../../reducers/post/interfaces";
+import { RootState } from "../../reducers/interfaces";
 import St, { Container } from "./styles";
 
 const Posts: FC<any> = (): JSX.Element => {

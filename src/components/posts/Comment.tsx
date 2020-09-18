@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { IComment } from "../../reducers/post/interfaces";
+import { IComment } from "../../reducers/comment/interfaces";
 import St, { Container } from "./styles";
 import colors from "../../colors";
 
