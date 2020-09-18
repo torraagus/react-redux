@@ -17,6 +17,7 @@ export const Container = styled.div<IContainer>`
 	overflow-x: auto;
 	padding: 0.5rem;
 	margin: 0.5rem 0 1rem 0;
+	text-align: left;
 `;
 
 const Id = styled.p`
