@@ -11,7 +11,7 @@ const SelectedPost: FC<any> = () => {
 		<>
 			<St.Heading>Selected post</St.Heading>
 			{!post ? (
-				<St.NoPost>No post selected</St.NoPost>
+				<St.NoResource>No post selected</St.NoResource>
 			) : (
 				<>
 					<Container>

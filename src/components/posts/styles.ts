@@ -84,10 +84,10 @@ const Heading = styled.p`
 	font-weight: bold;
 `;
 
-const NoPost = styled.p``;
+const NoResource = styled.p``;
 
 const Error = styled.p`
 	color: ${colors.error};
 `;
 
-export default { Wrapper, Id, Title, Body, Heading, NoPost, Error };
+export default { Wrapper, Id, Title, Body, Heading, NoResource, Error };

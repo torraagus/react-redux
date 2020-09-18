@@ -11,7 +11,7 @@ const Comments: FC<any> = () => {
 		<>
 			<St.Heading>Comments</St.Heading>
 			{comments.length == 0 ? (
-				<St.NoPost>No comments</St.NoPost>
+				<St.NoResource>No comments</St.NoResource>
 			) : (
 				<Container vertical>
 					{comments.map((comment) => (
