@@ -5,21 +5,33 @@ import { RootState } from "../../reducers/interfaces";
 import St, { Container } from "./styles";
 
 const Posts: FC<any> = (): JSX.Element => {
-	const { posts, error } = useSelector((state: RootState) => state.postReducer);
+	const { posts, error, loading } = useSelector((state: RootState) => state.postReducer);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch({ type: "POSTS_FETCH_REQUESTED" });
 	}, []);
 
-	if (posts.length == 0) {
-		return <div>Loading posts...</div>;
+	const heading = <St.Heading>All posts</St.Heading>;
+
+	if (loading) {
+		return (
+			<>
+				{heading}
+				<div>Loading posts...</div>
+			</>
+		);
 	} else if (error) {
-		return <St.Error>{error}</St.Error>;
+		return (
+			<>
+				{heading}
+				<St.Error>{error}</St.Error>
+			</>
+		);
 	} else {
 		return (
 			<>
-				<St.Heading>All posts</St.Heading>
+				{heading}
 				<Container>
 					{posts.map((post) => (
 						<Post key={post.id} post={post} />
