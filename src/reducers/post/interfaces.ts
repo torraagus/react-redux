@@ -4,7 +4,7 @@ export interface IPost {
 	body: string;
 }
 
-export interface IPostState {
+export interface IState {
 	selectedPost: IPost | null;
 	posts: IPost[];
 	loading: boolean;

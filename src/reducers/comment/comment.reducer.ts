@@ -1,8 +1,8 @@
-import { ICommentState, IAction } from "../comment/interfaces";
+import { IState, IAction } from "../comment/interfaces";
 
 const INITIAL_STATE = { comments: [], error: null, loading: true, heading: "Comments" };
 
-const commentReducer = (state: ICommentState = INITIAL_STATE, action: IAction) => {
+const commentReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 	switch (action.type) {
 		case "FETCHING_COMMENTS":
 			return { ...state, loading: true };

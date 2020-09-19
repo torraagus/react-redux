@@ -7,7 +7,7 @@ import Loading from "../loading/Loading";
 import FetchError from "../fetchError/FetchError";
 import St, { Container } from "../shared/styles";
 
-const Comments: FC<any> = () => {
+const Comments: FC = () => {
 	const heading = "Comments";
 	const { comments, error, loading } = useSelector((state: RootState) => state.commentReducer);
 

@@ -6,7 +6,7 @@ export interface IComment {
 	body: string;
 }
 
-export interface ICommentState {
+export interface IState {
 	comments: IComment[];
 	loading: boolean;
 	error: string | null;

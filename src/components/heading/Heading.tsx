@@ -1,12 +1,10 @@
 import React, { FC } from "react";
 import Sh from "../shared/styles";
 
-interface IProps {
+type Props = {
 	heading: string;
-}
-
-const Heading: FC<IProps> = ({ heading }): JSX.Element => {
-	return <Sh.Heading>{heading}</Sh.Heading>;
 };
+
+const Heading: FC<Props> = ({ heading }): JSX.Element => <Sh.Heading>{heading}</Sh.Heading>;
 
 export default Heading;

@@ -5,12 +5,12 @@ import { RootState } from "../../reducers/interfaces";
 import St from "./styles";
 import Sh from "../shared/styles";
 
-interface IProps {
+type Props = {
 	post: IPost;
 	disabled?: boolean;
-}
+};
 
-const Post: FC<IProps> = ({ post, disabled }) => {
+const Post: FC<Props> = ({ post, disabled }) => {
 	const { selectedPost } = useSelector((state: RootState) => state.postReducer);
 	const { title, body, id } = post;
 	const dispatch = useDispatch();

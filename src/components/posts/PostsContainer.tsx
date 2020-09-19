@@ -7,7 +7,7 @@ import FetchError from "../fetchError/FetchError";
 import { RootState } from "../../reducers/interfaces";
 import { Container } from "./styles";
 
-const Posts: FC<any> = (): JSX.Element => {
+const Posts: FC = (): JSX.Element => {
 	const heading = "All posts";
 	const { posts, error, loading } = useSelector((state: RootState) => state.postReducer);
 	const dispatch = useDispatch();

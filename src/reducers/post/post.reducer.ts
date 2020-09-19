@@ -1,8 +1,8 @@
-import { IPostState, IAction } from "./interfaces";
+import { IState, IAction } from "./interfaces";
 
 const INITIAL_STATE = { selectedPost: null, posts: [], error: null, loading: true };
 
-const postReducer = (state: IPostState = INITIAL_STATE, action: IAction) => {
+const postReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 	const { posts } = state;
 	switch (action.type) {
 		case "POST_SELECTED":

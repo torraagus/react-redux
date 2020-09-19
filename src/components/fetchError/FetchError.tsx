@@ -7,13 +7,11 @@ interface IProps {
 	heading: string;
 }
 
-const FetchError: FC<IProps> = ({ error, heading }): JSX.Element => {
-	return (
-		<>
-			<Heading heading={heading} />
-			<Sh.Error>{error}</Sh.Error>
-		</>
-	);
-};
+const FetchError: FC<IProps> = ({ error, heading }): JSX.Element => (
+	<>
+		<Heading heading={heading} />
+		<Sh.Error>{error}</Sh.Error>
+	</>
+);
 
 export default FetchError;

@@ -6,7 +6,7 @@ import Post from "./Post";
 import Heading from "../heading/Heading";
 import St, { Container } from "./styles";
 
-const SelectedPost: FC<any> = () => {
+const SelectedPost: FC = () => {
 	const heading = "Selected post";
 	const { selectedPost: post } = useSelector((state: RootState) => state.postReducer);
 
