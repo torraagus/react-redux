@@ -1,26 +1,27 @@
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../reducers/interfaces";
-import Comments from "../posts/CommentsContainer";
+import Comments from "../comments/CommentsContainer";
 import Post from "./Post";
+import Heading from "../heading/Heading";
 import St, { Container } from "./styles";
 
 const SelectedPost: FC<any> = () => {
+	const heading = "Selected post";
 	const { selectedPost: post } = useSelector((state: RootState) => state.postReducer);
 
-	return (
+	return post ? (
 		<>
-			<St.Heading>Selected post</St.Heading>
-			{!post ? (
-				<St.Subheading>No post selected</St.Subheading>
-			) : (
-				<>
-					<Container>
-						<Post disabled post={post} />
-					</Container>
-					<Comments />
-				</>
-			)}
+			<Heading heading={heading} />
+			<Container>
+				<Post disabled post={post} />
+			</Container>
+			<Comments />
+		</>
+	) : (
+		<>
+			<Heading heading={heading} />
+			<St.Subheading>No post selected</St.Subheading>
 		</>
 	);
 };

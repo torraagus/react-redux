@@ -1,6 +1,6 @@
 import { ICommentState, IAction } from "../comment/interfaces";
 
-const INITIAL_STATE = { comments: [], error: null, loading: true };
+const INITIAL_STATE = { comments: [], error: null, loading: true, heading: "Comments" };
 
 const commentReducer = (state: ICommentState = INITIAL_STATE, action: IAction) => {
 	switch (action.type) {

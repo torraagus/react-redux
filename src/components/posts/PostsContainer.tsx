@@ -1,10 +1,14 @@
 import React, { FC, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Post from "./Post";
+import Heading from "../heading/Heading";
+import Loading from "../loading/Loading";
+import FetchError from "../fetchError/FetchError";
 import { RootState } from "../../reducers/interfaces";
-import St, { Container } from "./styles";
+import { Container } from "./styles";
 
 const Posts: FC<any> = (): JSX.Element => {
+	const heading = "All posts";
 	const { posts, error, loading } = useSelector((state: RootState) => state.postReducer);
 	const dispatch = useDispatch();
 
@@ -12,34 +16,19 @@ const Posts: FC<any> = (): JSX.Element => {
 		dispatch({ type: "POSTS_FETCH_REQUESTED" });
 	}, []);
 
-	const heading = <St.Heading>All posts</St.Heading>;
+	if (loading) return <Loading stuff={"posts"} heading={heading} />;
+	if (error) return <FetchError error={error} heading={heading} />;
 
-	if (loading) {
-		return (
-			<>
-				{heading}
-				<St.Subheading>Loading posts...</St.Subheading>
-			</>
-		);
-	} else if (error) {
-		return (
-			<>
-				{heading}
-				<St.Error>{error}</St.Error>
-			</>
-		);
-	} else {
-		return (
-			<>
-				{heading}
-				<Container>
-					{posts.map((post) => (
-						<Post key={post.id} post={post} />
-					))}
-				</Container>
-			</>
-		);
-	}
+	return (
+		<>
+			<Heading heading={heading} />
+			<Container>
+				{posts.map((post) => (
+					<Post key={post.id} post={post} />
+				))}
+			</Container>
+		</>
+	);
 };
 
 export default Posts;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "../../colors";
+import St from "../shared/styles";
 
 interface IWrapper {
 	selected: boolean;
@@ -34,8 +35,6 @@ const Title = styled.p`
 	font-weight: bold;
 `;
 
-const Body = styled.p``;
-
 const Wrapper = styled.div<IWrapper>`
 	padding: 1rem 1rem 0 1rem;
 	min-width: 50%;
@@ -67,8 +66,8 @@ const Wrapper = styled.div<IWrapper>`
 			border-bottom: none;
     	}
     
-    	active {
-			opacity: 90%;
+    	:active {
+			opacity: 50%;
 		}
 	}`}
 
@@ -80,16 +79,4 @@ const Wrapper = styled.div<IWrapper>`
 		}`}
 `;
 
-const Heading = styled.p`
-	letter-spacing: 3px;
-	font-weight: bold;
-	color: ${colors.secondary};
-`;
-
-const Subheading = styled.p``;
-
-const Error = styled.p`
-	color: ${colors.error};
-`;
-
-export default { Wrapper, Id, Title, Body, Heading, Subheading, Error };
+export default { Wrapper, Id, Title, ...St };

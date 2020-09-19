@@ -1,9 +1,3 @@
-export interface IPost {
-	id: number;
-	title: string;
-	body: string;
-}
-
 export interface IComment {
 	postId: number;
 	id: number;
@@ -16,6 +10,7 @@ export interface ICommentState {
 	comments: IComment[];
 	loading: boolean;
 	error: string | null;
+	heading: string;
 }
 
 export interface IAction {

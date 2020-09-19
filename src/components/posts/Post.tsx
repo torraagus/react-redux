@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IPost } from "../../reducers/post/interfaces";
 import { RootState } from "../../reducers/interfaces";
 import St from "./styles";
+import Sh from "../shared/styles";
 
 interface IProps {
 	post: IPost;
@@ -11,6 +12,7 @@ interface IProps {
 
 const Post: FC<IProps> = ({ post, disabled }) => {
 	const { selectedPost } = useSelector((state: RootState) => state.postReducer);
+	const { title, body, id } = post;
 	const dispatch = useDispatch();
 
 	const onPostSelected = () => {
@@ -21,10 +23,10 @@ const Post: FC<IProps> = ({ post, disabled }) => {
 
 	return (
 		<>
-			<St.Wrapper disabled={disabled} selected={selectedPost?.id === post.id} onClick={onPostSelected}>
-				<St.Title>{post.title}</St.Title>
-				<St.Body>{post.body}</St.Body>
-				<St.Id>{post.id}</St.Id>
+			<St.Wrapper disabled={disabled} selected={selectedPost?.id === id} onClick={onPostSelected}>
+				<St.Title>{title}</St.Title>
+				<Sh.Body>{body}</Sh.Body>
+				<St.Id>{id}</St.Id>
 			</St.Wrapper>
 		</>
 	);
