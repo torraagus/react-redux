@@ -1,5 +1,7 @@
 export default {
-	primary: "#2f89fc",
-	secondary: "#30e3ca",
+	primary: "#9692af",
+	secondary: "#acdbdf",
+	terciary: "#69779b",
+	fourth: "#d7eaea",
 	error: "#ff304f",
 };

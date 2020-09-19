@@ -4,22 +4,21 @@ import St from "../shared/styles";
 
 interface IWrapper {
 	selected: boolean;
-	disabled: boolean | undefined;
 }
 
 interface IContainer {
 	vertical?: boolean;
 }
 
-export const Container = styled.div<IContainer>`
-	display: flex;
-	flex-direction: ${({ vertical }) => (vertical ? "column" : "row")};
-	width: 50vw;
-	overflow-x: auto;
-	padding: 0.5rem;
-	margin: 0.5rem 0 1rem 0;
-	text-align: left;
-`;
+// export const Container = styled.div<IContainer>`
+// 	display: flex;
+// 	flex-direction: ${({ vertical }) => (vertical ? "column" : "row")};
+// 	width: 50vw;
+// 	overflow-x: auto;
+// 	padding: 0.5rem;
+// 	margin: 0.5rem 0 1rem 0;
+// 	text-align: left;
+// `;
 
 const Id = styled.p`
 	font-weight: bold;
@@ -35,29 +34,30 @@ const Title = styled.p`
 	font-weight: bold;
 `;
 
+const PostsWrapper = styled.div`
+	width: 60%;
+`;
+const SelectedPostWrapper = styled.div`
+	width: 40%;
+`;
+
 const Wrapper = styled.div<IWrapper>`
 	padding: 1rem 1rem 0 1rem;
-	min-width: 50%;
 	height: fit-content;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: start;
 	text-align: left;
+	background-color: white;
 	border: 1px solid ${colors.primary};
-	margin-left: 1.25rem;
 
-	-webkit-box-shadow: 10px 10px 5px 0px #651a1b31;
+	/* -webkit-box-shadow: 10px 10px 5px 0px #651a1b31;
 	-moz-box-shadow: 10px 10px 5px 0px #651a1b2f;
-	box-shadow: 5px 5px 5px 0px #651a1b27;
+	box-shadow: 5px 5px 5px 0px #651a1b27; */
 
-	:nth-child(1) {
-		margin: 0;
-	}
-
-	${({ disabled, selected }) =>
-		!disabled &&
-		!selected &&
-		`
+	${({ selected }) =>
+		!selected
+			? `
 		:hover {
 			cursor: pointer;
 			opacity: 75%;
@@ -65,14 +65,11 @@ const Wrapper = styled.div<IWrapper>`
     	:active {
 			opacity: 50%;
 		}
-	}`}
-
-	${({ selected }) =>
-		selected &&
-		`& {
+	}`
+			: `& {
 			background-color: ${colors.primary};
 			color: white;
 		}`}
 `;
 
-export default { Wrapper, Id, Title, ...St };
+export default { Wrapper, Id, Title, PostsWrapper, SelectedPostWrapper, ...St };

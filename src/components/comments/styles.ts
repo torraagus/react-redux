@@ -4,6 +4,7 @@ import Sh from "../shared/styles";
 
 const Wrapper = styled.div`
 	border-bottom: 1px solid ${colors.primary};
+	background-color: white;
 	padding: 1rem;
 `;
 
