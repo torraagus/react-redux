@@ -54,18 +54,14 @@ const Wrapper = styled.div<IWrapper>`
 		margin: 0;
 	}
 
-	${({ disabled }) =>
+	${({ disabled, selected }) =>
 		!disabled &&
+		!selected &&
 		`
 		:hover {
 			cursor: pointer;
 			opacity: 75%;
 
-		& ${Id} {
-			border: 1px solid white;
-			border-bottom: none;
-    	}
-    
     	:active {
 			opacity: 50%;
 		}
