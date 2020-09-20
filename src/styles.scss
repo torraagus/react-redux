@@ -1,0 +1,17 @@
+@import "./variables.scss";
+
+* {
+	scrollbar-color: $primary $secondary;
+	scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+	width: 0.5vw;
+	height: 0.5vh;
+	background-color: $primary;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: $secondary;
+	border-radius: 45px;
+}

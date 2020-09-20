@@ -50,6 +50,7 @@ const Wrapper = styled.div<IWrapper>`
 	text-align: left;
 	background-color: white;
 	border: 1px solid ${colors.primary};
+	font-weight: 300;
 
 	/* -webkit-box-shadow: 10px 10px 5px 0px #651a1b31;
 	-moz-box-shadow: 10px 10px 5px 0px #651a1b2f;

@@ -22,4 +22,18 @@ const LoadingWrapper = styled.div`
 	align-items: center;
 `;
 
-export { Wrapper, LoadingWrapper };
+const Header = styled.h1`
+	color: ${colors.primary};
+	font-weight: 500;
+	letter-spacing: 5px;
+`;
+
+const Root = styled.div`
+	font-family: "Roboto";
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
+
+export { Wrapper, LoadingWrapper, Root, Header };

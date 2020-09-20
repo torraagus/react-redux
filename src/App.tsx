@@ -1,17 +1,16 @@
 import React, { useEffect } from "react";
-import "./styles.css";
+import "./styles.scss";
 import Posts from "./components/posts/PostsContainer";
 import SelectedPost from "./components/posts/SelectedPost";
 import LoadingBar from "react-top-loading-bar";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "./reducers/interfaces";
-import colors from "./colors";
-import { Wrapper, LoadingWrapper } from "./app.styles";
+import { Wrapper, LoadingWrapper, Root, Header } from "./app.styles";
 import Loading from "./components/loading/Loading";
 
 const App = () => {
 	const { progress, color } = useSelector((state: RootState) => state.loadingBarReducer);
-	const { loading } = useSelector((state: RootState) => state.postReducer);
+	const { loading: loadingPosts } = useSelector((state: RootState) => state.postReducer);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -19,22 +18,22 @@ const App = () => {
 	}, []);
 
 	return (
-		<div className="App">
+		<Root>
 			<LoadingBar color={color} progress={progress} />
-			{loading ? (
+			{loadingPosts ? (
 				<LoadingWrapper>
 					<Loading heading={"Loading posts..."} />
 				</LoadingWrapper>
 			) : (
 				<>
-					<h1 style={{ color: colors.primary }}>Posts</h1>
+					<Header>Posts</Header>
 					<Wrapper>
 						<Posts />
 						<SelectedPost />
 					</Wrapper>
 				</>
 			)}
-		</div>
+		</Root>
 	);
 };
 
